@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Member {
@@ -38,6 +37,15 @@ public class Member {
     @OneToMany(mappedBy = "member")
     List<Post> postList = new ArrayList<>();
 
+    public Member(String name, String email, String username, LocalDateTime joinedAt) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.joinedAt = joinedAt;
+    }
 
-
+    @Override
+    public String toString() {
+        return "Member: Name: " + name;
+    }
 }
