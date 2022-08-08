@@ -1,18 +1,19 @@
 package com.ggshin.mypostv1.member;
 
 import com.ggshin.mypostv1.post.Post;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/* 궁금증: Builder나 Setter가 없으면 왜 Constructor가 있어도 NoArgsConstructor 형태로 mapper가 생성되는 걸까? */
 @Getter
-@NoArgsConstructor
+@Setter
 @Entity
+@NoArgsConstructor
 public class Member {
 
     @Id
@@ -34,18 +35,27 @@ public class Member {
     @Column
     private LocalDateTime joinedAt = LocalDateTime.now();
 
+    @Column
+    private LocalDateTime modifiedAt = LocalDateTime.now();
+
     @OneToMany(mappedBy = "member")
     List<Post> postList = new ArrayList<>();
 
-    public Member(String name, String email, String username, LocalDateTime joinedAt) {
+    public void addPost(Post post) {
+        postList.add(post);
+    }
+
+    @Builder
+    public Member(String name, String email, String username) {
         this.name = name;
         this.email = email;
         this.username = username;
-        this.joinedAt = joinedAt;
+
     }
 
     @Override
     public String toString() {
         return "Member: Name: " + name;
     }
+
 }
