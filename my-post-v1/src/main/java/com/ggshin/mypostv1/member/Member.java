@@ -33,6 +33,9 @@ public class Member {
     private String password;
 
     @Column
+    private String role = "ROLE_USER";
+
+    @Column
     private LocalDateTime joinedAt = LocalDateTime.now();
 
     @Column
