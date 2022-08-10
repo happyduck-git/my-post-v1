@@ -22,7 +22,7 @@ public class AppSecurityConfig {
         http.headers().frameOptions().disable();
 
         http.authorizeRequests()
-                .antMatchers("/post/**").authenticated()
+                .antMatchers("/v1/post/**").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()

@@ -29,8 +29,13 @@ public class PostController {
         this.memberService = memberService;
     }
 
+    @GetMapping
+    public String post() {
+        return "postForm";
+    }
+
     @PostMapping
-    public ResponseEntity postPost(@Valid @RequestBody PostDto.Post postDto) {
+    public ResponseEntity postPost(@Valid PostDto.Post postDto) {
 
         //postDto to Post so that Service can do its job
         Post post = postMapper.postDtoToPost(postDto);
@@ -47,7 +52,7 @@ public class PostController {
         //post entity to response dto
         PostDto.Response response = postMapper.postToPostResponse(createdPost);
 
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
 

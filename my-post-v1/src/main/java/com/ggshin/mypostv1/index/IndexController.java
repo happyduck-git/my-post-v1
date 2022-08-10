@@ -10,8 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
 
@@ -33,15 +31,6 @@ public class IndexController {
         return "joinForm";
     }
 
-//    @PostMapping("/join")
-//    public @ResponseBody
-//    String join(Member member) {
-//        member.setRole("ROLE_USER"); //처음에는 USER라는 권한 부여
-//        member.setPassword(passwordEncoder.encode(member.getPassword())); //password 인코딩 해서 저장 (안하면 로그인 시 에러 발생!)
-//
-//        memberRepository.save(member);
-//        return "joined!";
-//    }
 
     @PostMapping("/join")
     public ResponseEntity join(@Valid MemberDto.Post memberPostDto) {
@@ -64,10 +53,6 @@ public class IndexController {
         return "loginForm";
     }
 
-    @GetMapping("/post")
-    public String post() {
-        return "postForm";
-    }
 
     //@PostMapping("/post") 만들기
 
