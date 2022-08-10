@@ -4,6 +4,7 @@ import com.ggshin.mypostv1.post.Post;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Member {
@@ -37,11 +39,10 @@ public class Member {
     @OneToMany(mappedBy = "member")
     List<Post> postList = new ArrayList<>();
 
-    public Member(String name, String email, String username, LocalDateTime joinedAt) {
+    public Member(String name, String email, String username) {
         this.name = name;
         this.email = email;
         this.username = username;
-        this.joinedAt = joinedAt;
     }
 
     @Override

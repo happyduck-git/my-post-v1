@@ -17,8 +17,9 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
-    public MemberController(MemberMapper memberMapper) {
+    public MemberController(MemberMapper memberMapper, MemberService memberService) {
         this.memberMapper = memberMapper;
+        this.memberService = memberService;
     }
 
     @PostMapping
