@@ -51,16 +51,17 @@ public class Member {
     }
 
     @Builder
-    public Member(String name, String email, String username) {
+    public Member(String name, String email, String username, String password) {
         this.name = name;
         this.email = email;
         this.username = username;
+        this.password = password;
 
     }
 
     @Override
     public String toString() {
-        return "Member: Name: " + name;
+        return "Member: Name: " + name + ", Password: " + password;
     }
 
 }

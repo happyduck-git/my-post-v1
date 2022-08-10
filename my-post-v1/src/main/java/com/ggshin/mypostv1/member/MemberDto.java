@@ -32,7 +32,7 @@ public class MemberDto {
 
         @Override
         public String toString() {
-            return "MemberPostDto: Name: " + name;
+            return "MemberPostDto: Name: " + name + ", Password: " + password ;
         }
     }
 
