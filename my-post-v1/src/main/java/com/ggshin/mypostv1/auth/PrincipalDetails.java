@@ -28,6 +28,10 @@ public class PrincipalDetails implements UserDetails {
         return null;
     }
 
+    public long getUserId() {
+        return member.getMemberId();
+    }
+
     @Override
     public String getPassword() {
         return member.getPassword();

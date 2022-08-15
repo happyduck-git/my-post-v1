@@ -61,7 +61,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return "Member: Name: " + name + ", Password: " + password;
+        return "Member: ID: " + memberId+ " Name: " + name + ", Password: " + password;
     }
 
 }
